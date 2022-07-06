@@ -1,0 +1,55 @@
+# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+
+MODEL:
+  TYPE: mobilenetv2_140_block_ds
+  NAME: mobilenetv2_140_block_ds
+
+  # DROP_RATE: 0.2
+  # DROP_PATH_RATE: 0.2
+
+  LABEL_SMOOTHING: 0.1
+
+EVAL_MODE: False
+
+TRAIN:
+  EPOCHS: 180
+  WEIGHT_DECAY: 1e-5
+  BASE_LR: 0.1
+  LR_SCHEDULER:
+    NAME: 'cosine'
+
+AUG:
+  AUTO_AUGMENT: 'rand-m5-mstd0.5-inc1'
+  MIXUP: 0. # 0.8
+  # REPROB: 0.
+
+DS:
+  PRETRAINED: ""
+
+  DISTILL: False
+  DISTILL_WEIGHT: 0.7
+  DISTILL_FEATURE: False
+  DISTILL_FEATURE_WEIGHT: 1e-3
+
+  ACT_FUN: 'relu6'
+  KEEP_ALL_ACT: False
+  ACT_FROM_LIST: True
+  ACT_LIST: [1.,1.,0.,0.,1.,0.,0.,0.,0.,0.,0.,1.,1.,0.,1.,1.,1.,1.,1.]
+
+  ACT_FROM_SEARCH: False
+  SEARCH_CKPT: ""
+
+  DECAY_SLOPE: False
+  DECAY_MODE: 'iter'
+  START_EPOCH: 0
+  END_EPOCH: 0
+
+  START_SLOPE: 0
+  END_SLOPE: 1
+
+  SEARCH: False
+  L0_SPARSITY: 0.4
+
+  ADD_FINAL_ACT: 'relu6'
+
+  MERGE: True

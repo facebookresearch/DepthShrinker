@@ -1,0 +1,62 @@
+# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+
+MODEL:
+  TYPE: mobilenetv2_140_block_ds
+  NAME: mobilenetv2_140_block_ds
+
+  # DROP_RATE: 0.2
+  # DROP_PATH_RATE: 0.2
+
+  LABEL_SMOOTHING: 0.1
+
+EVAL_MODE: False
+
+TRAIN:
+  EPOCHS: 180
+  WEIGHT_DECAY: 1e-5
+  BASE_LR: 0.1
+  LR_SCHEDULER:
+    NAME: 'cosine'
+
+AUG:
+  AUTO_AUGMENT: 'rand-m5-mstd0.5-inc1'
+  MIXUP: 0. # 0.8
+  # REPROB: 0.
+
+DS:
+  PRETRAINED: ""
+
+  DISTILL: False
+  DISTILL_WEIGHT: 0.7
+  DISTILL_FEATURE: False
+  DISTILL_FEATURE_WEIGHT: 1e-3
+
+  ACT_FUN: 'learnable_relu6_hard'
+  KEEP_ALL_ACT: False
+  ACT_FROM_LIST: False
+  ACT_LIST: []
+
+  ACT_FROM_SEARCH: False
+  SEARCH_CKPT: ""
+
+  DECAY_SLOPE: False
+  DECAY_MODE: 'iter'
+  START_EPOCH: 0
+  END_EPOCH: 0
+
+  START_SLOPE: 0
+  END_SLOPE: 1
+
+  SEARCH: True
+  L0_SPARSITY: 0.4
+
+  ADD_FINAL_ACT: 'relu6'
+
+  MERGE: True
+
+  LAT_BEFORE: [0,56.97,138.79,82.45,47.03,34.51,34.51,21.19,17.91,17.91,17.91,20.75,31.27,31.27,16.67,14.21,14.21,18.77,0]
+  
+  LAT_AFTER: [0,41.78,5.45,6.68,3.23,4.12,4.12,2.38,2.72,2.72,2.72,3.75,5.04,5.04,3.44,2.8,2.8,4.38,0]
+
+
+  
