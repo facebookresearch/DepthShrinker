@@ -89,7 +89,7 @@ python main.py --cfg configs/{config-file}.yaml \
 The majority of DepthShrinker is licensed under CC-BY-NC, however portions of the project are available under separate license terms: pytorch-image-models (Timm) is licensed under the Apache 2.0 license; Swin-Transformer is licensed under the MIT license.
 
 ## Contributing
-We actively welcome your pull requests! Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for more info.
+We actively welcome your pull requests! Please see [CONTRIBUTING](CONTRIBUTING.MD) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.MD) for more info.
 
 
 
